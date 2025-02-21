@@ -4,7 +4,6 @@
  * Description: This class implements the acutal chess board UI.
  * This class handles drawing and events handling for the board
  ***************************************************************/
-using System;
 using System.Collections;
 using System.Windows.Forms;
 using ChessLibrary;

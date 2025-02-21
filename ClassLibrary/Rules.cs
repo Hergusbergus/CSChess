@@ -186,14 +186,13 @@ namespace ChessLibrary
 		{
 			Cell EnPassantCell;
 
-			if (move.StartCell.piece.Side.isWhite())	// white piece is moving
-				EnPassantCell = m_Board.BottomCell(move.EndCell);	// Get the cell under target position
-			else
-				EnPassantCell = m_Board.TopCell(move.EndCell);	// Get the cell under target position
+            // white piece is moving
+            if (move.StartCell.piece.Side.isWhite()) EnPassantCell = m_Board.BottomCell(move.EndCell);	// Get the cell under target position
+			else EnPassantCell = m_Board.TopCell(move.EndCell);		// Get the cell under target position
 
 			move.EnPassantPiece = EnPassantCell.piece;				// Save a reference to the en passant cell
 			EnPassantCell.piece = new Piece(Piece.PieceType.Empty);	// Empty the en-passant cell
-			DoNormalMove(move);	// Move the pawn to it's target position
+			DoNormalMove(move);										// Move the pawn to it's target position
 		}
 
 		// Undo the user move 
