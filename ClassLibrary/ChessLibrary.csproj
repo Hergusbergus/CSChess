@@ -123,6 +123,21 @@
     <Compile Include="Side.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="IAIStrategy.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseAIStrategy.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AIStrategies\BeginnerStrategy.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AIStrategies\IntermediateStrategy.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AIStrategies\AdvancedStrategy.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="XmlHelper.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
