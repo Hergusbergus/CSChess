@@ -10,7 +10,7 @@
     </ApplicationIcon>
     <AssemblyKeyContainerName>
     </AssemblyKeyContainerName>
-    <AssemblyName>Chessbrary</AssemblyName>
+    <AssemblyName>ChessLibrary</AssemblyName>
     <AssemblyOriginatorKeyFile>
     </AssemblyOriginatorKeyFile>
     <DefaultClientScript>JScript</DefaultClientScript>
@@ -124,6 +124,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="IAIStrategy.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IGameObserver.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="BaseAIStrategy.cs">
