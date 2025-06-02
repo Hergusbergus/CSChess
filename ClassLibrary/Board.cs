@@ -44,28 +44,28 @@ namespace ChessLibrary
 				}
 
 			// Now setup the board for black side
-			m_cells["a1"].piece = new Piece(Piece.PieceType.Rook,m_BlackSide);
-			m_cells["h1"].piece = new Piece(Piece.PieceType.Rook,m_BlackSide);
-			m_cells["b1"].piece = new Piece(Piece.PieceType.Knight,m_BlackSide);
-			m_cells["g1"].piece = new Piece(Piece.PieceType.Knight,m_BlackSide);
-			m_cells["c1"].piece = new Piece(Piece.PieceType.Bishop,m_BlackSide);
-			m_cells["f1"].piece = new Piece(Piece.PieceType.Bishop,m_BlackSide);
-			m_cells["e1"].piece = new Piece(Piece.PieceType.King,m_BlackSide);
-			m_cells["d1"].piece = new Piece(Piece.PieceType.Queen,m_BlackSide);
+			m_cells["a1"].piece = new Piece(PieceType.Rook, m_BlackSide);
+			m_cells["h1"].piece = new Piece(PieceType.Rook, m_BlackSide);
+			m_cells["b1"].piece = new Piece(PieceType.Knight, m_BlackSide);
+			m_cells["g1"].piece = new Piece(PieceType.Knight, m_BlackSide);
+			m_cells["c1"].piece = new Piece(PieceType.Bishop, m_BlackSide);
+			m_cells["f1"].piece = new Piece(PieceType.Bishop, m_BlackSide);
+			m_cells["e1"].piece = new Piece(PieceType.King, m_BlackSide);
+			m_cells["d1"].piece = new Piece(PieceType.Queen, m_BlackSide);
 			for (int col=1; col<=8; col++)
-				m_cells[2, col].piece = new Piece(Piece.PieceType.Pawn,m_BlackSide);
+				m_cells[2, col].piece = new Piece(PieceType.Pawn, m_BlackSide);
 
 			// Now setup the board for white side
-			m_cells["a8"].piece = new Piece(Piece.PieceType.Rook,m_WhiteSide);
-			m_cells["h8"].piece = new Piece(Piece.PieceType.Rook,m_WhiteSide);
-			m_cells["b8"].piece = new Piece(Piece.PieceType.Knight,m_WhiteSide);
-			m_cells["g8"].piece = new Piece(Piece.PieceType.Knight,m_WhiteSide);
-			m_cells["c8"].piece = new Piece(Piece.PieceType.Bishop,m_WhiteSide);
-			m_cells["f8"].piece = new Piece(Piece.PieceType.Bishop,m_WhiteSide);
-			m_cells["e8"].piece = new Piece(Piece.PieceType.King,m_WhiteSide);
-			m_cells["d8"].piece = new Piece(Piece.PieceType.Queen,m_WhiteSide);
+			m_cells["a8"].piece = new Piece(PieceType.Rook, m_WhiteSide);
+			m_cells["h8"].piece = new Piece(PieceType.Rook, m_WhiteSide);
+			m_cells["b8"].piece = new Piece(PieceType.Knight, m_WhiteSide);
+			m_cells["g8"].piece = new Piece(PieceType.Knight, m_WhiteSide);
+			m_cells["c8"].piece = new Piece(PieceType.Bishop, m_WhiteSide);
+			m_cells["f8"].piece = new Piece(PieceType.Bishop, m_WhiteSide);
+			m_cells["e8"].piece = new Piece(PieceType.King, m_WhiteSide);
+			m_cells["d8"].piece = new Piece(PieceType.Queen, m_WhiteSide);
 			for (int col=1; col<=8; col++)
-				m_cells[7, col].piece = new Piece(Piece.PieceType.Pawn,m_WhiteSide);
+				m_cells[7, col].piece = new Piece(PieceType.Pawn, m_WhiteSide);
 		}
 
 		// get the new item by rew and column

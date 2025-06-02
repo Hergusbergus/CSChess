@@ -113,18 +113,18 @@ namespace ChessLibrary
 			move.Type = Move.MoveType.NormalMove;
 
 			// check if the move is of capture type
-			if (move.EndCell.piece != null && move.EndCell.piece.Type != Piece.PieceType.Empty ) 
+			if (move.EndCell.piece != null && move.EndCell.piece.Type != PieceType.Empty ) 
 				move.Type = Move.MoveType.CaputreMove;
 
 			// check if the move is of tower/castling type
-			if (move.StartCell.piece != null && move.StartCell.piece.Type == Piece.PieceType.King)
+			if (move.StartCell.piece != null && move.StartCell.piece.Type == PieceType.King)
 			{
 				if (Math.Abs(move.EndCell.col - move.StartCell.col)>1)	// king can move to other than neighbour cell only in tower move
 					move.Type = Move.MoveType.TowerMove;
 			}
 
 			// check if the move is a pawn promotion move
-			if (move.StartCell.piece != null && move.StartCell.piece.Type == Piece.PieceType.Pawn)
+			if (move.StartCell.piece != null && move.StartCell.piece.Type == PieceType.Pawn)
 			{
 				// Pawn is being promoted
 				if (move.EndCell.row == 8 || move.EndCell.row == 1)
@@ -132,7 +132,7 @@ namespace ChessLibrary
 			}		
 
 			// check if the move is a en passant move
-			if (move.StartCell.piece != null && move.StartCell.piece.Type == Piece.PieceType.Pawn)
+			if (move.StartCell.piece != null && move.StartCell.piece.Type == PieceType.Pawn)
 			{
 				// Pawn is being being moved in a corner without a piece
 				if ((move.EndCell.piece == null || move.EndCell.piece.IsEmpty()) && move.StartCell.col != move.EndCell.col )
@@ -145,7 +145,7 @@ namespace ChessLibrary
 		{
 			m_Board[move.StartCell].piece.Moves++;	// incremenet moves
 			m_Board[move.EndCell].piece = m_Board[move.StartCell].piece;		// Move object at the destination
-			m_Board[move.StartCell].piece = new Piece(Piece.PieceType.Empty);	// Empty the source location
+			m_Board[move.StartCell].piece = new Piece(PieceType.Empty);	// Empty the source location
 		}
 
 		// Do the castling/tower move. King interchanges it's position with it's rock
@@ -176,7 +176,7 @@ namespace ChessLibrary
 			DoNormalMove(move);	// Do the normal move
 			// check if promo piece is already selected by the user
 			if (move.PromoPiece==null)
-				m_Board[move.EndCell].piece = new Piece(Piece.PieceType.Queen, m_Board[move.EndCell].piece.Side);	// Set the end cell to queen
+				m_Board[move.EndCell].piece = new Piece(PieceType.Queen, m_Board[move.EndCell].piece.Side);	// Set the end cell to queen
 			else
 				m_Board[move.EndCell].piece = move.PromoPiece;
 		}
@@ -191,7 +191,7 @@ namespace ChessLibrary
 			else EnPassantCell = m_Board.TopCell(move.EndCell);		// Get the cell under target position
 
 			move.EnPassantPiece = EnPassantCell.piece;				// Save a reference to the en passant cell
-			EnPassantCell.piece = new Piece(Piece.PieceType.Empty);	// Empty the en-passant cell
+			EnPassantCell.piece = new Piece(PieceType.Empty);	// Empty the en-passant cell
 			DoNormalMove(move);										// Move the pawn to it's target position
 		}
 
@@ -213,7 +213,7 @@ namespace ChessLibrary
 
 					m_Board[source].piece.Moves--;	// decrement moves
 					m_Board[target].piece = m_Board[source].piece;		// Move object at the destination
-					m_Board[source].piece = new Piece(Piece.PieceType.Empty);	// Empty the source location	
+					m_Board[source].piece = new Piece(PieceType.Empty);	// Empty the source location	
 				}
 				else	// Moving Left
 				{
@@ -223,7 +223,7 @@ namespace ChessLibrary
 
 					m_Board[source].piece.Moves--;	// decrement moves
 					m_Board[target].piece = m_Board[source].piece;		// Move object at the destination
-					m_Board[source].piece = new Piece(Piece.PieceType.Empty);	// Empty the source location
+					m_Board[source].piece = new Piece(PieceType.Empty);	// Empty the source location
 				}
 			}
 
@@ -259,7 +259,7 @@ namespace ChessLibrary
 			// loop all the owner squars and get his king cell
 			foreach (string CellName in OwnerCells)
 			{
-				if (m_Board[CellName].piece.Type == Piece.PieceType.King )
+				if (m_Board[CellName].piece.Type == PieceType.King )
 				{
 					OwnerKingCell = m_Board[CellName]; // store the enemy cell position
 					break;	// break the loop
@@ -325,7 +325,7 @@ namespace ChessLibrary
 
             // When checking the moves for the king, don't allow tower/caslting, if
             // the king is under check
-            if (source.piece.Type == Piece.PieceType.King && IsUnderCheck(source.piece.Side.type))
+            if (source.piece.Type == PieceType.King && IsUnderCheck(source.piece.Side.type))
             {
                 foreach (Cell target in LegalMoves)
                 {
@@ -418,30 +418,30 @@ namespace ChessLibrary
 			// Check the legal moves for the object
 			switch (source.piece.Type)
 			{
-				case Piece.PieceType.Empty:	// cell is empty
+				case PieceType.Empty:	// cell is empty
 					break;
 
-				case Piece.PieceType.Pawn:	// Pawn object
+				case PieceType.Pawn:	// Pawn object
 					GetPawnMoves(source, LegalMoves);
 					break;
 
-				case Piece.PieceType.Knight:	// Knight object
+				case PieceType.Knight:	// Knight object
 					GetKnightMoves(source, LegalMoves);
 					break;
 
-				case Piece.PieceType.Rook:	// Rook piece
+				case PieceType.Rook:	// Rook piece
 					GetRookMoves(source, LegalMoves);
 					break;
 
-				case Piece.PieceType.Bishop:	// Bishop piece
+				case PieceType.Bishop:	// Bishop piece
 					GetBishopMoves(source, LegalMoves);
 					break;
 
-				case Piece.PieceType.Queen:	// Queen piece
+				case PieceType.Queen:	// Queen piece
 					GetQueenMoves(source, LegalMoves);
 					break;
 
-				case Piece.PieceType.King:	// king piece
+				case PieceType.King:	// king piece
 					GetKingMoves(source, LegalMoves);
 					break;
 			}

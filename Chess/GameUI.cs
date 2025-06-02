@@ -17,7 +17,7 @@ namespace Chess
 	{
 		private ArrayList Squars;	// Picture control array for storing the place holders
 		public Images ChessImages;	// Contains reference of chess images
-		private string ResourceFolder;		// Contain the locaiton of resource folder
+		private readonly string ResourceFolder;		// Contain the locaiton of resource folder
 		private int LogCounter;			// Stores the entries in the log
 
 		public Game ChessGame;		    // Backend chess game engine
@@ -252,31 +252,32 @@ namespace Chess
 		}
 
 		// Let user give the option of selecting promo piece
-		public Piece GetPromoPiece(Side PlayerSide)
+		private Piece GetPromoPiece(Side PlayerSide)
 		{
 			SelectPiece SelectPieceDlg = new SelectPiece();
 
 			// Initialize the images to show on the form
-			SelectPieceDlg.Piece1.Image = ChessImages.GetImageForPiece(new Piece(Piece.PieceType.Queen,PlayerSide));
-			SelectPieceDlg.Piece2.Image = ChessImages.GetImageForPiece(new Piece(Piece.PieceType.Knight,PlayerSide));
-			SelectPieceDlg.Piece3.Image = ChessImages.GetImageForPiece(new Piece(Piece.PieceType.Rook,PlayerSide));
-			SelectPieceDlg.Piece4.Image = ChessImages.GetImageForPiece(new Piece(Piece.PieceType.Bishop,PlayerSide));
+			SelectPieceDlg.Piece1.Image = ChessImages.GetImageForPiece(new Piece(PieceType.Queen, PlayerSide));
+			SelectPieceDlg.Piece2.Image = ChessImages.GetImageForPiece(new Piece(PieceType.Knight, PlayerSide));
+			SelectPieceDlg.Piece3.Image = ChessImages.GetImageForPiece(new Piece(PieceType.Rook, PlayerSide));
+			SelectPieceDlg.Piece4.Image = ChessImages.GetImageForPiece(new Piece(PieceType.Bishop, PlayerSide));
 			
-			SelectPieceDlg.ShowDialog(this.ParentForm);	// Show the promo select dialog
-
-			// Now return back corresponding piece 
-			switch (SelectPieceDlg.SelectedIndex)
+			if (SelectPieceDlg.ShowDialog() == DialogResult.OK)
 			{
-				case 1:
-					return new Piece(Piece.PieceType.Queen,PlayerSide);
-				case 2:
-					return new Piece(Piece.PieceType.Knight,PlayerSide);
-				case 3:
-					return new Piece(Piece.PieceType.Rook,PlayerSide);
-				case 4:
-					return new Piece(Piece.PieceType.Bishop,PlayerSide);
+				switch (SelectPieceDlg.SelectedIndex)
+				{
+					case 1:
+						return new Piece(PieceType.Queen, PlayerSide);
+					case 2:
+						return new Piece(PieceType.Knight, PlayerSide);
+					case 3:
+						return new Piece(PieceType.Rook, PlayerSide);
+					case 4:
+						return new Piece(PieceType.Bishop, PlayerSide);
+				}
 			}
-			return null;
+
+			return new Piece(PieceType.Queen, PlayerSide); // Default to queen if dialog is cancelled
 		}
 
 		// Display the user move in the history log
@@ -369,10 +370,12 @@ namespace Chess
         public void SaveGame()
         {
             // Show the File Save as dialog and get the target file path
-            SaveFileDialog saveAsDialog = new SaveFileDialog();
-            saveAsDialog.Title = "Save file as...";
-            saveAsDialog.Filter = "CSChess File (*.qcf)|*.qcf";
-            saveAsDialog.RestoreDirectory = true;
+            SaveFileDialog saveAsDialog = new SaveFileDialog
+            {
+                Title = "Save file as...",
+                Filter = "CSChess File (*.qcf)|*.qcf",
+                RestoreDirectory = true
+            };
 
             if (saveAsDialog.ShowDialog() == DialogResult.OK)
             {
@@ -388,10 +391,12 @@ namespace Chess
         public void LoadGame()
         {
             // Show the File Save as dialog and get the target file path
-            OpenFileDialog openDialog = new OpenFileDialog();
-            openDialog.Title = "Load CSChess file...";
-            openDialog.Filter = "CSChess File (*.qcf)|*.qcf";
-            openDialog.RestoreDirectory = true;
+            OpenFileDialog openDialog = new OpenFileDialog
+            {
+                Title = "Load CSChess file...",
+                Filter = "CSChess File (*.qcf)|*.qcf",
+                RestoreDirectory = true
+            };
 
             if (openDialog.ShowDialog() == DialogResult.OK)
             {
@@ -440,9 +445,11 @@ namespace Chess
 		public void NewGame()
 		{
 			ParentForm.ChessCaptureBar.Clear();
-			NewGame NewGameDlg = new NewGame();
-            NewGameDlg.ResourceFolderPath = ResourceFolder;
-			NewGameDlg.ShowDialog();
+            NewGame NewGameDlg = new NewGame
+            {
+                ResourceFolderPath = ResourceFolder
+            };
+            NewGameDlg.ShowDialog();
 
 			// Start the new game
 			if (NewGameDlg.bStartGame)
