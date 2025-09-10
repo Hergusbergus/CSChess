@@ -3,20 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\zammerman\\bezzad\\CSChess\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{49ACB103-97A2-437A-AA64-38CD41A1DB51}|ClassLibrary\\ChessLibrary.csproj|c:\\users\\zammerman\\bezzad\\cschess\\classlibrary\\rules.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{49ACB103-97A2-437A-AA64-38CD41A1DB51}|ClassLibrary\\ChessLibrary.csproj|solutionrelative:classlibrary\\rules.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{49ACB103-97A2-437A-AA64-38CD41A1DB51}|ClassLibrary\\ChessLibrary.csproj|C:\\Users\\zammerman\\bezzad\\CSChess\\classlibrary\\piece.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49ACB103-97A2-437A-AA64-38CD41A1DB51}|ClassLibrary\\ChessLibrary.csproj|solutionrelative:classlibrary\\piece.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{49ACB103-97A2-437A-AA64-38CD41A1DB51}|ClassLibrary\\ChessLibrary.csproj|C:\\Users\\zammerman\\bezzad\\CSChess\\classlibrary\\move.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{49ACB103-97A2-437A-AA64-38CD41A1DB51}|ClassLibrary\\ChessLibrary.csproj|solutionrelative:classlibrary\\move.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4265F8F0-1709-4C20-ACD2-903D603FD67A}|Chess\\Chess.csproj|C:\\Users\\zammerman\\bezzad\\CSChess\\chess\\gameui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4265F8F0-1709-4C20-ACD2-903D603FD67A}|Chess\\Chess.csproj|c:\\users\\zammerman\\bezzad\\cschess\\chess\\gameui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4265F8F0-1709-4C20-ACD2-903D603FD67A}|Chess\\Chess.csproj|solutionrelative:chess\\gameui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4265F8F0-1709-4C20-ACD2-903D603FD67A}|Chess\\Chess.csproj|C:\\Users\\zammerman\\bezzad\\CSChess\\chess\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4265F8F0-1709-4C20-ACD2-903D603FD67A}|Chess\\Chess.csproj|solutionrelative:chess\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{49ACB103-97A2-437A-AA64-38CD41A1DB51}|ClassLibrary\\ChessLibrary.csproj|C:\\Users\\zammerman\\bezzad\\CSChess\\classlibrary\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49ACB103-97A2-437A-AA64-38CD41A1DB51}|ClassLibrary\\ChessLibrary.csproj|solutionrelative:classlibrary\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49ACB103-97A2-437A-AA64-38CD41A1DB51}|ClassLibrary\\ChessLibrary.csproj|C:\\Users\\zammerman\\bezzad\\CSChess\\classlibrary\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49ACB103-97A2-437A-AA64-38CD41A1DB51}|ClassLibrary\\ChessLibrary.csproj|solutionrelative:classlibrary\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49ACB103-97A2-437A-AA64-38CD41A1DB51}|ClassLibrary\\ChessLibrary.csproj|C:\\Users\\zammerman\\bezzad\\CSChess\\classlibrary\\baseaistrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49ACB103-97A2-437A-AA64-38CD41A1DB51}|ClassLibrary\\ChessLibrary.csproj|solutionrelative:classlibrary\\baseaistrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49ACB103-97A2-437A-AA64-38CD41A1DB51}|ClassLibrary\\ChessLibrary.csproj|C:\\Users\\zammerman\\bezzad\\CSChess\\classlibrary\\aistrategies\\advancedstrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49ACB103-97A2-437A-AA64-38CD41A1DB51}|ClassLibrary\\ChessLibrary.csproj|solutionrelative:classlibrary\\aistrategies\\advancedstrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,57 +34,81 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Rules.cs",
-              "DocumentMoniker": "C:\\Users\\zammerman\\bezzad\\CSChess\\ClassLibrary\\Rules.cs",
-              "RelativeDocumentMoniker": "ClassLibrary\\Rules.cs",
-              "ToolTip": "C:\\Users\\zammerman\\bezzad\\CSChess\\ClassLibrary\\Rules.cs*",
-              "RelativeToolTip": "ClassLibrary\\Rules.cs*",
-              "ViewState": "AgIAAKoAAAAAAAAAAAAUwLgAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-20T21:20:16.505Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Move.cs",
-              "DocumentMoniker": "C:\\Users\\zammerman\\bezzad\\CSChess\\ClassLibrary\\Move.cs",
-              "RelativeDocumentMoniker": "ClassLibrary\\Move.cs",
-              "ToolTip": "C:\\Users\\zammerman\\bezzad\\CSChess\\ClassLibrary\\Move.cs",
-              "RelativeToolTip": "ClassLibrary\\Move.cs",
-              "ViewState": "AgIAAEcAAAAAAAAAAAAiwBsAAABJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-20T21:18:25.62Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AssemblyInfo.cs",
-              "DocumentMoniker": "C:\\Users\\zammerman\\bezzad\\CSChess\\Chess\\AssemblyInfo.cs",
-              "RelativeDocumentMoniker": "Chess\\AssemblyInfo.cs",
-              "ToolTip": "C:\\Users\\zammerman\\bezzad\\CSChess\\Chess\\AssemblyInfo.cs",
-              "RelativeToolTip": "Chess\\AssemblyInfo.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-20T21:17:16.555Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "GameUI.cs",
               "DocumentMoniker": "C:\\Users\\zammerman\\bezzad\\CSChess\\Chess\\GameUI.cs",
               "RelativeDocumentMoniker": "Chess\\GameUI.cs",
               "ToolTip": "C:\\Users\\zammerman\\bezzad\\CSChess\\Chess\\GameUI.cs",
               "RelativeToolTip": "Chess\\GameUI.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAK0BAAAAAAAAAAAewLwBAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T04:26:17.697Z"
+              "WhenOpened": "2025-06-02T22:00:03.915Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Board.cs",
+              "DocumentMoniker": "C:\\Users\\zammerman\\bezzad\\CSChess\\ClassLibrary\\Board.cs",
+              "RelativeDocumentMoniker": "ClassLibrary\\Board.cs",
+              "ToolTip": "C:\\Users\\zammerman\\bezzad\\CSChess\\ClassLibrary\\Board.cs",
+              "RelativeToolTip": "ClassLibrary\\Board.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAjwCwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T21:56:11.506Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Piece.cs",
+              "DocumentMoniker": "C:\\Users\\zammerman\\bezzad\\CSChess\\ClassLibrary\\Piece.cs",
+              "RelativeDocumentMoniker": "ClassLibrary\\Piece.cs",
+              "ToolTip": "C:\\Users\\zammerman\\bezzad\\CSChess\\ClassLibrary\\Piece.cs",
+              "RelativeToolTip": "ClassLibrary\\Piece.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T21:54:16.162Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BaseAIStrategy.cs",
+              "DocumentMoniker": "C:\\Users\\zammerman\\bezzad\\CSChess\\ClassLibrary\\BaseAIStrategy.cs",
+              "RelativeDocumentMoniker": "ClassLibrary\\BaseAIStrategy.cs",
+              "ToolTip": "C:\\Users\\zammerman\\bezzad\\CSChess\\ClassLibrary\\BaseAIStrategy.cs",
+              "RelativeToolTip": "ClassLibrary\\BaseAIStrategy.cs",
+              "ViewState": "AgIAAFAAAAAAAAAAAAAjwFkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-29T08:12:16.34Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AdvancedStrategy.cs",
+              "DocumentMoniker": "C:\\Users\\zammerman\\bezzad\\CSChess\\ClassLibrary\\AIStrategies\\AdvancedStrategy.cs",
+              "RelativeDocumentMoniker": "ClassLibrary\\AIStrategies\\AdvancedStrategy.cs",
+              "ToolTip": "C:\\Users\\zammerman\\bezzad\\CSChess\\ClassLibrary\\AIStrategies\\AdvancedStrategy.cs",
+              "RelativeToolTip": "ClassLibrary\\AIStrategies\\AdvancedStrategy.cs",
+              "ViewState": "AgIAABkBAAAAAAAAAAAMwDIBAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-29T08:07:58.447Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Game.cs",
+              "DocumentMoniker": "C:\\Users\\zammerman\\bezzad\\CSChess\\ClassLibrary\\Game.cs",
+              "RelativeDocumentMoniker": "ClassLibrary\\Game.cs",
+              "ToolTip": "C:\\Users\\zammerman\\bezzad\\CSChess\\ClassLibrary\\Game.cs",
+              "RelativeToolTip": "ClassLibrary\\Game.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAAD4AAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-29T08:07:46.445Z"
             }
           ]
         }

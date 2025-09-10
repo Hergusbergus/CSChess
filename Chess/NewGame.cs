@@ -38,6 +38,9 @@ namespace Chess
 		/// </summary>
 		private System.ComponentModel.Container components = null;
 
+		private System.Windows.Forms.ComboBox cmbAIStrategy;
+		private System.Windows.Forms.Label lblAIStrategy;
+
 		public NewGame()
 		{
 			//
@@ -89,6 +92,8 @@ namespace Chess
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.WhitePlayerName = new System.Windows.Forms.TextBox();
             this.WhitePlayerImage = new System.Windows.Forms.PictureBox();
+            this.cmbAIStrategy = new System.Windows.Forms.ComboBox();
+            this.lblAIStrategy = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -262,6 +267,30 @@ namespace Chess
             this.WhitePlayerImage.TabIndex = 1;
             this.WhitePlayerImage.TabStop = false;
             // 
+            // cmbAIStrategy
+            // 
+            this.cmbAIStrategy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbAIStrategy.FormattingEnabled = true;
+            this.cmbAIStrategy.Items.AddRange(new object[] {
+                "Beginner",
+                "Intermediate",
+                "Advanced"
+            });
+            this.cmbAIStrategy.Location = new System.Drawing.Point(120, 120);
+            this.cmbAIStrategy.Name = "cmbAIStrategy";
+            this.cmbAIStrategy.Size = new System.Drawing.Size(121, 21);
+            this.cmbAIStrategy.TabIndex = 8;
+            this.cmbAIStrategy.SelectedIndex = 1; // Default to Intermediate
+            // 
+            // lblAIStrategy
+            // 
+            this.lblAIStrategy.AutoSize = true;
+            this.lblAIStrategy.Location = new System.Drawing.Point(12, 123);
+            this.lblAIStrategy.Name = "lblAIStrategy";
+            this.lblAIStrategy.Size = new System.Drawing.Size(65, 13);
+            this.lblAIStrategy.TabIndex = 9;
+            this.lblAIStrategy.Text = "AI Strategy:";
+            // 
             // NewGame
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
@@ -273,6 +302,8 @@ namespace Chess
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.lblAIStrategy);
+            this.Controls.Add(this.cmbAIStrategy);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;

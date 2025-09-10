@@ -13,6 +13,7 @@ using System.Collections;
 using System.Xml;
 using System.Xml.Serialization;
 using System.Security.Cryptography;
+using System.Collections.Generic;
 
 namespace ChessLibrary
 {
@@ -30,15 +31,17 @@ namespace ChessLibrary
 		public Board Board;		            // expose the game board to outside world
         public Side.SideType GameTurn;		    // Current game turn i.e. White or Black
 
-        private Stack m_MovesHistory;		// Contains all moves made by the user		
-        private Stack m_RedoMovesHistory;	// Contains all the Redo moves made by the user
-		private Rules m_Rules;			    // Contains all the chess rules
+        private readonly Stack m_MovesHistory;		// Contains all moves made by the user		
+        private readonly Stack m_RedoMovesHistory;	// Contains all the Redo moves made by the user
+		private readonly Rules m_Rules;			    // Contains all the chess rules
 		private Player m_WhitePlayer;	    // White Player objectg
 		private Player m_BlackPlayer;	    // Black player object
 
 		public bool DoNullMovePruning;		// True when compute should do null move pruning to speed up search
 		public bool DoPrincipleVariation;	// True when computer should use principle variation to optimize search
 		public bool DoQuiescentSearch;		// Return true when computer should do Queiscent search
+
+		private readonly List<IGameObserver> m_Observers = new List<IGameObserver>();
 
 		public Game()
 		{
@@ -54,9 +57,8 @@ namespace ChessLibrary
 		// Fire the computer thinking events to all the subscribers
 		public void NotifyComputerThinking(int depth, int currentMove, int TotalMoves, int TotalAnalzyed, Move BestMove)
 		{
-			if (ComputerThinking!=null)	// There are some subscribers
-				ComputerThinking(depth, currentMove, TotalMoves, TotalAnalzyed, BestMove);
-		}
+            ComputerThinking?.Invoke(depth, currentMove, TotalMoves, TotalAnalzyed, BestMove);
+        }
 
 		// get the new item by rew and column
 		public Cell this[int row, int col]
@@ -330,7 +332,7 @@ namespace ChessLibrary
 			int MoveResult;
 
 			// check if it's user turn to play
-            if (this.Board[source].piece != null && this.Board[source].piece.Type != Piece.PieceType.Empty && this.Board[source].piece.Side.type == GameTurn)
+            if (this.Board[source].piece != null && this.Board[source].piece.Type != PieceType.Empty && this.Board[source].piece.Side.type == GameTurn)
 			{
 				Move UserMove = new Move(this.Board[source], this.Board[dest]);	// create the move object
 				MoveResult=m_Rules.DoMove(UserMove);
@@ -428,5 +430,59 @@ namespace ChessLibrary
 				move.PromoPiece = PromoPiece;		// Update the promo piece variable
 			}
 		}
+
+        /// <summary>
+        /// Register a new observer to receive game state updates
+        /// </summary>
+        /// <param name="observer">The observer to register</param>
+        public void RegisterObserver(IGameObserver observer)
+        {
+            if (!m_Observers.Contains(observer))
+            {
+                m_Observers.Add(observer);
+            }
+        }
+
+        /// <summary>
+        /// Unregister an observer from receiving game state updates
+        /// </summary>
+        /// <param name="observer">The observer to unregister</param>
+        public void UnregisterObserver(IGameObserver observer)
+        {
+            m_Observers.Remove(observer);
+        }
+
+        /// <summary>
+        /// Notify all observers of a move being made
+        /// </summary>
+        private void NotifyMoveMade(Move move)
+        {
+            foreach (var observer in m_Observers)
+            {
+                observer.OnMoveMade(move);
+            }
+        }
+
+        /// <summary>
+        /// Notify all observers of a game state change
+        /// </summary>
+        private void NotifyGameStateChanged(GameState newState)
+        {
+            foreach (var observer in m_Observers)
+            {
+                observer.OnGameStateChanged(newState);
+            }
+        }
+
+        /// <summary>
+        /// Notify all observers of a piece being captured
+        /// </summary>
+        private void NotifyPieceCaptured(Piece piece)
+        {
+            foreach (var observer in m_Observers)
+            {
+                observer.OnPieceCaptured(piece);
+            }
+        }
 	}
 }

@@ -77,47 +77,48 @@ namespace Chess
 		// Return image for the given piece type
 		public Image GetImageForPiece(Piece Piece)
 		{
-			// Not a valid chess piece
-			if (Piece == null || Piece.Type == Piece.PieceType.Empty )
+			if (Piece == null || Piece.Type == PieceType.Empty)
 				return null;
 
-			// check and return the white piece image
+			// Get the image based on the piece type and side
 			if (Piece.Side.isWhite())
-				switch(Piece.Type)
+			{
+				switch (Piece.Type)
 				{
-					case Piece.PieceType.King:
+					case PieceType.King:
 						return (Image)m_ImageList[2];
-					case Piece.PieceType.Queen:
+					case PieceType.Queen:
 						return (Image)m_ImageList[3];
-					case Piece.PieceType.Bishop:
+					case PieceType.Bishop:
 						return (Image)m_ImageList[4];
-					case Piece.PieceType.Knight:
+					case PieceType.Knight:
 						return (Image)m_ImageList[5];
-					case Piece.PieceType.Rook:
+					case PieceType.Rook:
 						return (Image)m_ImageList[6];
-					case Piece.PieceType.Pawn:
+					case PieceType.Pawn:
 						return (Image)m_ImageList[7];
-					default:
-						return null;
 				}
+			}
 			else
-				switch(Piece.Type)
+			{
+				switch (Piece.Type)
 				{
-					case Piece.PieceType.King:
+					case PieceType.King:
 						return (Image)m_ImageList[8];
-					case Piece.PieceType.Queen:
+					case PieceType.Queen:
 						return (Image)m_ImageList[9];
-					case Piece.PieceType.Bishop:
+					case PieceType.Bishop:
 						return (Image)m_ImageList[10];
-					case Piece.PieceType.Knight:
+					case PieceType.Knight:
 						return (Image)m_ImageList[11];
-					case Piece.PieceType.Rook:
+					case PieceType.Rook:
 						return (Image)m_ImageList[12];
-					case Piece.PieceType.Pawn:
+					case PieceType.Pawn:
 						return (Image)m_ImageList[13];
-					default:
-						return null;
 				}
+			}
+
+			return null;
 		}
 	}
 }

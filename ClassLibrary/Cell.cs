@@ -108,7 +108,7 @@ namespace ChessLibrary
 		// returns true if the cell is empty
 		public bool IsEmpty()
 		{
-			return m_piece == null || m_piece.Type == Piece.PieceType.Empty;
+			return m_piece == null || m_piece.Type == PieceType.Empty;
 		}
 
 		// returns true if the cell is owned by enemy of the given cell

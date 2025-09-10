@@ -26,6 +26,7 @@ namespace ChessLibrary
 		private Image m_Image;		// Image of the player
 		private Rules m_Rules;		// A reference to the chess rules
 		private TimeSpan m_MaxThinkTime;		// Maximum think time in seconds
+		private IAIStrategy m_AIStrategy;    // The AI strategy to use for computer players
 
 		private TimeSpan m_TotalThinkTime;	// Stores total think time of the player
 		private DateTime m_StartTime;		// User turn time starts
@@ -55,6 +56,11 @@ namespace ChessLibrary
 		public Player(Side PlayerSide, Type PlayerType, Rules rules) : this(PlayerSide,PlayerType)
 		{
 			m_Rules=rules;	
+			if (PlayerType == Type.Computer)
+			{
+				// Default to intermediate strategy
+				m_AIStrategy = new AIStrategies.IntermediateStrategy();
+			}
 		}
 
 		// User turn/thinking time starts
@@ -93,45 +99,29 @@ namespace ChessLibrary
             set { m_Rules = value; }
         }
 
+		// Set the AI strategy for computer players
+		public void SetAIStrategy(IAIStrategy strategy)
+		{
+			if (m_Type == Type.Computer)
+			{
+				m_AIStrategy = strategy;
+			}
+		}
+
+		// Get the current AI strategy
+		public IAIStrategy GetAIStrategy()
+		{
+			return m_AIStrategy;
+		}
+
 		// Get the best move available to the player
 		public Move GetFixBestMove()
 		{
-			int alpha, beta;
-			int depth;					// depth to which to do the search
-			TimeSpan ElapsedTime= new TimeSpan(1);		// Total elpased time
-			Move BestMove=null;		// The best move for the current position
+			if (m_Type != Type.Computer || m_AIStrategy == null)
+				return null;
 
-			// Initialize constants
-			const int MIN_SCORE= -1000000;		// Minimum limit of negative for integer
-			const int MAX_SCORE= 1000000;		// Maximum limit of positive integer
-
-			ArrayList TotalMoves=m_Rules.GenerateAllLegalMoves(m_Side); // Get all the legal moves for the current side
-			ArrayList PlayerCells = m_Rules.ChessBoard.GetSideCell(m_Side.type);
-
-			alpha = MIN_SCORE;	// The famous Alpha & Beta are set to their initial values
-			beta  = MAX_SCORE;	// at the start of each increasing search depth iteration
-
-			depth=3;
-
-			// Loop through all the legal moves and get the one with best score
-			foreach (Move move in TotalMoves)
-			{
-				// Now to get the effect of this move; execute this move and analyze the board
-				m_Rules.ExecuteMove(move);
-				move.Score = -AlphaBeta(m_Rules.ChessGame.EnemyPlayer(m_Side).PlayerSide,depth - 1, -beta, -alpha);
-				m_Rules.UndoMove(move);	// undo the move
-
-				// If the score of the move we just tried is better than the score of the best move we had 
-				// so far, at this depth, then make this the best move.
-				if (move.Score > alpha)
-				{
-					BestMove = move;
-					alpha = move.Score;
-				}
-			}		
-			return BestMove;
+			return m_AIStrategy.GetBestMove(m_Rules, m_Side, 3, (int)m_MaxThinkTime.TotalMilliseconds);
 		}
-
 
 		// Get the best move available to the player
 		public Move GetBestMove()
